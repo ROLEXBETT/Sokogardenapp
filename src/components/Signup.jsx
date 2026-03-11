@@ -1,11 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, useActionData } from 'react-router-dom';
 
 const Signup = () => {
+  // initialize the hooks
+  const [Username, setUsername] = useState("");
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   return (
-    <div>
-        <h1>Welcome to the Signup page</h1>
+    <div className='row justify-content-center mt-4'>
+        <div className="card col-md-6 shadow p-4">
+        <h1 className='text-primary'>Sign up</h1>
+
+        <form>
+          <input type="text"
+          placeholder='Enter the Username'
+          className='form-control'
+           value={Username}
+          onChange={(e) => setUsername(e.target.value)}
+          required /> <br />
+
+          {/* {usename} */}
+
+          <input type="email" 
+          placeholder='Enter the email address'
+          className='form-control'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required/> <br />
+
+          {/* {email} */}
+
+          <input type="password" 
+          placeholder='Enter the password'
+          className='form-control'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required/> <br />
+
+          {/* {password} */}
+
+          <input type="number" 
+          placeholder='Enter the Mobile phone number'
+          className='form-control'
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required/> <br />
+          
+          {/* {phone} */}
+          
+          <input type="button" value="Signup" className='btn btn-primary'/> <br /> <br />
+
+          Already have an account? <Link to={'/signin'}>Signin</Link>
+        </form>
+        </div>
     </div>
   )
 }
 
 export default Signup;
+
+// Research on Axios module in reactjs
