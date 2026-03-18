@@ -9,6 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
 
+
   //Define the three states an applicatio will move to
   const [loading, setLoading] = useState("")
   const [success, setSuccess] = useState("")
@@ -23,7 +24,7 @@ const handleSubmit = async (e) =>{
  setLoading("Please wait as registration is in progress...")
 
  try{
-  // create a formdtaa object that will enable you to capture the four details entered on the form
+  // create a formddata object that will enable you to capture the four details entered on the form
   const formdata = new FormData();
 
   //insert the 4 details(email, name ,password,phone) in terms of key - value pair
@@ -32,13 +33,13 @@ const handleSubmit = async (e) =>{
   formdata.append("password", password);
   formdata.append("phone", phone);
 
-  //By use of axios , we can access the method poost
+  //By use of axios , we can access the method post
   const response = await axios.post("https://rolexbett.alwaysdata.net/api/signup", formdata)
 
   //set back the loading to default
   setLoading("");
 
-  // just icase everything goes on well, update the success hook with a message
+  // just incase everything goes on well, update the success hook with a message
   setSuccess(response.data.message)
 
   //clear your hooks
@@ -51,7 +52,7 @@ const handleSubmit = async (e) =>{
   // set the loadig hook back to default
   setLoading("");
 
-  // update the erroe hook with the message given back from the response
+  // update the error hook with the message given back from the response
   setError(error.message)
 
  }
